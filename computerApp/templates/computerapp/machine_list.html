@@ -6,7 +6,7 @@
     <ul>
         {% for machine in machines %}
             <li>
-                <a href="{% url 'machine-detail' machine.id %}">
+                <a href="{% url 'machine-detail' machine.nom %}">
                 {{ machine.id }}</a> {{ machine.nom }}
             </li>
         {% endfor %}
