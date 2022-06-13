@@ -8,32 +8,49 @@
         <meta name= " viewport "
         content= " width=device-width content= " width=device-width ,
         initial-scale=1 ">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
         <!-- On ajoute un fichier CSS depuis les static -->
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/style.css' %} " >
     </head>
     <body>
+        <div>
+            {% load static %}
+            <img id="image" src="{% static 'computerapp/images/rtdev.png' %}" alt="" style="width: 190px;height: 80px;">
+        </div>
+        <div style="text-align:center;">
+            <h1><b>R&T DEVELOPMENT !</b></h1>
+        </div>
         {% block menu %}
-        <h1> R&T Dev</h1>
             {% block sidebar %}
-                <h2> Menu</h2>
-                <ul id="menu">
-                    <li><a href="{% url 'index' %}">Home</a></li>
-                    <li><a href="{% url 'machines' %}">Machines</a></li>
-                    <li><a href="{% url 'persos' %}">Personnel</a></li>
-                </ul>
+                <nav class="navbar navbar-expand-lg bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Menu</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link"  href="{% url 'index' %}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'machines' %}">Machines</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'persos' %}">Personnel</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             {% endblock %}
         {% endblock %}
-
-        <!-- On ajoute image ici depuis les statics -->
-{% load static %}
-<img src= "{% static 'computerapp/images/POITIERS_UNIVERSITE_LOGO2011.jpg' %} "
-alt= " logo " style= "width:200px;height:200px;">
-
-
-        {% block content %}
-            Blabla de la premiere page
-        {% endblock %}
-
+        <div style="text-align:center; margin-top: 20px;">
+            {% block content %}
+                <h3>Bienvenue sur le site IT Management, l’outil indispensable de l’entreprise pour pouvoir gérer toutes les machines.</h3>
+            {% endblock %}
+        </div>
+        
     </body>
 </html>
